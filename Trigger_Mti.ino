@@ -50,9 +50,11 @@ sei();
 ISR(TIMER1_OVF_vect)
 {
   blinkState = !blinkState;
+  digitalWrite(MTI_TRIGGER_PIN, blinkState);
   digitalWrite(LEDPIN, blinkState);
   delayMicroseconds(2000);
   blinkState = !blinkState;
+  digitalWrite(MTI_TRIGGER_PIN, blinkState);
   digitalWrite(LEDPIN, blinkState);
   
 TCNT1=0xF870; // reload the timer preload     0xFFC2
